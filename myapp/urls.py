@@ -6,6 +6,7 @@ from . import views
 urlpatterns =[
     path('', views.hello),
     path(f'about/', views.about),
+    path(f'hellos/<str:nombre>', views.hellos),
 ]
 
 
