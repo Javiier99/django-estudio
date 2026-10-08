@@ -5,8 +5,11 @@ from . import views
 
 urlpatterns =[
     path('', views.hello),
-    path(f'about/', views.about),
+    path(f'contacto/', views.contacto),
     path(f'hellos/<str:nombre>', views.hellos),
+    path('project/', views.project),
+    # path('task/<str:title>', views.task), #! Para usarlo en proximas tareas
+    path('task/', views.task),
 ]
 
 

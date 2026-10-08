@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from myapp.views import hello, about
+# from myapp.views import hello # * Lo oculto porque ya no sirve, ya que tenemos la función -> path('', include('myapp.urls'))
 # nombre = "javier" # Nombre de una variable
 urlpatterns = [
     
@@ -24,5 +24,5 @@ urlpatterns = [
     # path('', hello), # La url raiz que ahora se ha llevado a la aplicación myapp
     # path(f'about/{nombre}', about), # a url about con variable, que se ha llevado  a la aplicación myapp
 
-    path('', include('myapp.urls'))
+    path('', include('myapp.urls')) # * Esta función es la que tenemos
 ]
