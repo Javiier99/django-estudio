@@ -6,7 +6,38 @@
     <title>Todos los proyectos</title>
 </head>
 <body>
-    <h1>Projectos</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, nemo.</p>
+    {% extends 'layout/header.html' %}
+    {% block content %}
+        <h1>Projectos</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, nemo.</p>
+        {{projects}} 
+        <!-- Aquí  tenemos otra forma de colocar todos los datos que obtendrémos de la Base de datos con Jinja Loops -->
+
+        {% for project in projects%} <!-- Colocamos un bucle o el inicio del bucle -->
+
+            <h2>{{ project.name}}</h2> <!-- Indicamos los nombres de los proyectos para que recorra de uno en uno -->
+
+        {% endfor %} <!-- Indicamos que aquí cierra el bucle -->
+    {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

@@ -10,6 +10,7 @@ urlpatterns =[
     path('project/', views.project),
     # path('task/<str:title>', views.task), #! Para usarlo en proximas tareas
     path('task/', views.task),
+    path('form/', views.formulario),
 ]
 
 

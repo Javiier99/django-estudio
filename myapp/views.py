@@ -6,20 +6,32 @@ from django.shortcuts import get_object_or_404, render
 
 from django.http import HttpResponse, JsonResponse
 
+from .forms import CreateNewTask
+
 # Create your views here.
 
 def hello(request):
-    return render(request, "index.html")
+    title = "Locura NENE"
+    return render(request, "index.html", {
+        'title' : title
+    })
 
 def hellos(request, nombre):
     return HttpResponse(f"<h1>Hello {nombre}</h1>")
 
 def contacto(request):
-    return render(request, "pages/contacto.html")
+    user_name = {
+        "nombre" : "Javier"
+    }
+    return render(request, "pages/contacto.html", {
+        'user_name' : user_name 
+    })
 
 def project(resquest):
     projects = list(Project.objects.values())
-    return render(resquest, "pages/project.html")
+    return render(resquest, "pages/project.html", {
+        'projects' : projects
+    })
 
 
 # ! Para usarlo en proximas tareas
@@ -32,4 +44,13 @@ def project(resquest):
 def task(resquest):
     #task = Task.objects.get(title=title)
     # task = get_object_or_404(Task, title=title) # * Mejor forma de usarlo, salvo cuando sea procesos internos
-    return render(resquest, "pages/task.html")
+    tasks = Task.objects.all()
+    return render(resquest, "pages/task.html", {
+        'tasks' : tasks
+    })
+
+
+def formulario(resquest):
+    return render(resquest, "pages/formulario.html", {
+        'form' : CreateNewTask()
+    })

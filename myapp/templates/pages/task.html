@@ -8,5 +8,39 @@
 <body>
     <h1>Tareas</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, harum!</p>
+
+    
+
+    <!-- <div>
+        <ol>
+            {% for task in tasks %}
+            <li>{{task.title}} : {{task.desciption}}</li>
+            {% endfor %}
+
+        </ol>
+    </div> -->
+
+
+    <div>
+        <!-- Jinja condicionales -->
+        {% for task in tasks %}
+            <li>{{task.title}} : {{task.desciption}}</li>
+        
+            {% if task.done == 1 %} <!-- Empezamos la condición, en caso de que task.done sea igual a 1 entonces es una tarea realizada  -->
+                <p>Tarea Realizada</p><!-- Simplemente imprimimos el texto -->
+            {% else %}<!-- Colocamos el else para decir uno u otro -->
+                <p>Tarea Pendiente</p><!-- En caso de que no sea igual a uno entonces es una tarea pendiente -->
+            {% endif %}<!-- Cerramos el if -->
+            <button>Tarea Lista</button>
+            <button>Tarea No terminada</button>
+
+            <h1>{% if task.done == 1 %} Tarea Lista {% else %} Tarea pendiente {% endif %}</h1>
+        {% endfor %}
+
+    </div>
+
+    
+
+
 </body>
 </html>

@@ -6,7 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Esta es mi primera plantilla</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis obcaecati nobis nesciunt quam alias. Natus officia quos tenetur aliquid eveniet fugit ratione nulla sunt quas! Molestiae vero ea recusandae explicabo.</p>
+
+    {% extends 'layout/header.html' %} <!-- Palabra reservada extends seguido de comillas simple con la dirección donde se encuentre la plantilla -->
+    {% block content %} <!-- Abrimos el bloque de contenido e introducimos todo lo que querramos meter ahi, importante debe de tener el mismo nombre que en la plantilla, siendo block palabra reservada y content una palabra que podrémos colocar la que querramos-->
+        <h1>{{ title }}</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis obcaecati nobis nesciunt quam alias. Natus officia quos tenetur aliquid eveniet fugit ratione nulla sunt quas! Molestiae vero ea recusandae explicabo.</p>
+    {% endblock %} <!-- Aquí cerramos el bloque -->
 </body>
 </html>
