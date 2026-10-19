@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from .models import Project, Task
 
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 
 from django.http import HttpResponse, JsonResponse
 
@@ -51,6 +51,11 @@ def task(resquest):
 
 
 def formulario(resquest):
-    return render(resquest, "pages/formulario.html", {
-        'form' : CreateNewTask()
-    })
+    if resquest.method == "GET":
+        return render(resquest, "pages/formulario.html", {
+            'form' : CreateNewTask()
+        })
+    else:
+        Task.objects.create(title=resquest.POST['title'], desciption=resquest.POST['description'], project_id=3) # * Añadimos esta nueva línea para ir guardando los datos
+        return redirect('/task/') # * Retornamos y redirigimos la página a otro sitio
+
