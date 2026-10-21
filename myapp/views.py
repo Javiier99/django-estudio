@@ -6,7 +6,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 
 from django.http import HttpResponse, JsonResponse
 
-from .forms import CreateNewTask
+from .forms import CreateNewTask, CreateNewProject
 
 # Create your views here.
 
@@ -59,3 +59,10 @@ def formulario(resquest):
         Task.objects.create(title=resquest.POST['title'], desciption=resquest.POST['description'], project_id=3) # * Añadimos esta nueva línea para ir guardando los datos
         return redirect('/task/') # * Retornamos y redirigimos la página a otro sitio
 
+
+
+
+def create_projects(resquest):
+    return render(resquest, "projectt/create_project.html", {
+        'form_project' : CreateNewProject()
+    })
