@@ -11,8 +11,8 @@
     {% block content %}
     <h1>Create Project</h1>
 
-    <form action="">
-
+    <form action="" method="post">
+        {% csrf_token %}
         {{form_project}}
 
         <button type="submit">Enviar nuevo projecto</button>

@@ -57,12 +57,30 @@ def formulario(resquest):
         })
     else:
         Task.objects.create(title=resquest.POST['title'], desciption=resquest.POST['description'], project_id=3) # * Añadimos esta nueva línea para ir guardando los datos
-        return redirect('/task/') # * Retornamos y redirigimos la página a otro sitio
+        return redirect('task') # * Retornamos y redirigimos la página a otro sitio y además está colocado con el NAME
 
 
 
 
 def create_projects(resquest):
-    return render(resquest, "projectt/create_project.html", {
-        'form_project' : CreateNewProject()
+    if resquest.method == "POST":
+        Project.objects.create(name=resquest.POST['name'])
+        return redirect("project")
+    else:
+        return render(resquest, "projectt/create_project.html", {
+                    'form_project' : CreateNewProject()
+                })
+
+
+
+def project_detail(request, id):
+    print(id)
+    # project = Project.objects.get(id=id)
+    project = get_object_or_404(Project, id=id)
+    print(project)
+    return render(request, 'pages/detail.html', {
+        'titulo' : project.name
     })
+
+
+    

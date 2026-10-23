@@ -10,6 +10,5 @@ class CreateNewTask(forms.Form):
 
 
 class CreateNewProject(forms.Form):
-    title = forms.CharField(label="Titulo del projecto")
-    description = forms.CharField(label="Descripción del projecto", widget=forms.Textarea)
+    name = forms.CharField(label="Titulo del projecto")
 
