@@ -17,7 +17,8 @@
     <div>
         <h2>{{ project.name}}</h2> <!-- Indicamos los nombres de los proyectos para que recorra de uno en uno -->
         <p>Aquí irá la descripción</p>
-        <a href="">Pincha para la ruta</a>
+        <p>{{ project.id }}</p>
+        <a href="{% url 'project_detail' project.id %}">Pincha para la ruta</a>
     </div>
             
 

@@ -4,11 +4,11 @@ from django  import forms
 
 
 class CreateNewTask(forms.Form):
-    title = forms.CharField(label="Titulo de la tarea", max_length=200) # Con esto creamos el título con su input y su label además le estámos diciento que la longitud máxima que va acontener este input es de 200
+    title = forms.CharField(label="Titulo de la tarea", max_length=200, widget=forms.TextInput(attrs={'class': 'nombre-clase'})) # Con esto creamos el título con su input y su label además le estámos diciento que la longitud máxima que va acontener este input es de 200
     description = forms.CharField(label = "Descripción de la tarea" ,widget=forms.Textarea) # Con esto creamos la descripción su input y label además indicamos que no queremos que sea un requisito contestarlo
 
 
 
 class CreateNewProject(forms.Form):
-    name = forms.CharField(label="Titulo del projecto")
+    name = forms.CharField(label="Titulo del projecto", widget=forms.TextInput(attrs={'class' : 'nombre-clases'})) # Forma para poder crear una clase a un input de un formulario
 

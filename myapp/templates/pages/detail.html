@@ -8,11 +8,15 @@
 <body>
     {% extends 'layout/header.html' %}
 
+    
     {% block content %}
-
     <h1>{{titulo}}</h1> <!-- Aquí de esta forma es como ponemos el titulo -->
-
-
+    
+    {% for task in tasks %}
+    <div>
+        <h3>{{task.project}}</h3>
+    </div>
+    {% endfor %}
 
     {% endblock %}
     

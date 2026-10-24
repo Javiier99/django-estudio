@@ -28,7 +28,8 @@ def contacto(request):
     })
 
 def project(resquest):
-    projects = list(Project.objects.values())
+    # projects = list(Project.objects.values())
+    projects = Project.objects.all()
     return render(resquest, "pages/project.html", {
         'projects' : projects
     })
@@ -77,9 +78,11 @@ def project_detail(request, id):
     print(id)
     # project = Project.objects.get(id=id)
     project = get_object_or_404(Project, id=id)
-    print(project)
+    task = Task.objects.filter(project_id=id) # * Llamamos a las tareas que tenemos actualmente dentro del id que estámos llamando
+    print(project.id)
     return render(request, 'pages/detail.html', {
-        'titulo' : project.name
+        'titulo' : project.name,
+        'tasks' : task # * Y llevamos todas las tareas a una variable del diccionario
     })
 
 
